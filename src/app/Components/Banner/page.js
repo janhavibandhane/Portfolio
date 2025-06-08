@@ -63,7 +63,7 @@ export const Banner = () => {
         >
           <p className="text-sm text-primary uppercase mb-2">Welcome to my Portfolio</p>
           <h1 className="text-3xl md:text-5xl font-bold mb-4 ">
-            Hi! I'm Janhavi&nbsp;
+            Hi! I m Janhavi&nbsp;
             <span className="text-white">{text}</span>
           </h1>
           <p className="text-base text-white opacity-50 mb-6">
