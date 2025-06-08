@@ -68,14 +68,16 @@ export const Navbar = () => {
               <FaGithub className="text-4xl" />
             </div>
             </Link>
+            <Link href='https://www.linkedin.com/in/janhavi-bandhane-b6362b255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'>
             <div className=" w-8 h-8 md:w-10 md:h-10 bg-[#1e1e1e] opacity-25 rounded-full border-2 border-white flex justify-center items-center">
               <BsLinkedin className="md:text-4xl text-3xl rounded-full" />
             </div>
+            </Link>
           </div>
           <div className="hidden md:block">
-            <Link href="#connect">
+            <Link href="/img/Resume.pdf">
               <button className="btn btn-outline btn-primary">
-                Let’s Connect
+                Resume
               </button>
             </Link>
           </div>
@@ -89,13 +91,25 @@ export const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="mt-3 dropdown-content menub bg-[#1e1e1e] border border-[#777373]   rounded-box z-1 w-52 p-2 shadow-sm"
+              className="mt-3 dropdown-content menub bg-[#1e1e1e] border border-[#777373] font-semibold space-y-2  rounded-box z-1 w-52 p-2 shadow-sm"
             >
               <li>
-                <a>Item 1</a>
+               <Link
+            href="#home">
+              Home
+            </Link>
+              </li>
+             <li>
+               <Link
+            href="#skills">
+              Skills
+            </Link>
               </li>
               <li>
-                <a>Item 2</a>
+               <Link
+            href="#projects">
+              Project
+            </Link>
               </li>
             </ul>
           </div>

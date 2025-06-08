@@ -4,6 +4,10 @@ import { Banner } from "./Components/Banner/page";
 import { Skills } from "./Components/Skills/page";
 import Contact from "./Components/Contact/page";
 import Footer from "./Components/Footer/page";
+import { ProjectCard } from "./Components/ReuseableComponent/ProjectCard/page";
+import Project from "./Components/Project/page";
+import ProjectVideo from "./Components/ReuseableComponent/ProjectVideo/page";
+
 
 export default function Home() {
   return (
@@ -12,6 +16,7 @@ export default function Home() {
     <Banner></Banner>
     <Skills></Skills>
     <Contact></Contact>
+    <Project></Project>
     <Footer></Footer>
     </>
   );

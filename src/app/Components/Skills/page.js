@@ -28,10 +28,7 @@ export const Skills = () => {
           <div className="bg-[#151515] rounded-[64px] text-center p-10 -mt-16 max-w-6xl w-full">
             <h2 className="text-white md:text-4xl text-2xl font-bold mb-4">Skills</h2>
             <p className="text-gray-400 text-md md:text-lg mb-12 leading-relaxed">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
-              <br />
-              Lorem Ipsum has been the industry's standard dummy text.
+              Skilled in React, Next.js, React Native, Express.js, and MongoDB with a strong grasp of Tailwind CSS for responsive UI development.
             </p>
 
             <div className="flex overflow-x-auto gap-12 px-4 py-6 snap-x snap-mandatory scrollbar-hide">

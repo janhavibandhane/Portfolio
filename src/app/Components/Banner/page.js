@@ -3,13 +3,14 @@ import { useState, useEffect, useCallback } from "react";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import headerImg from '../../../../public/img/header-img.svg'; // keep your original header image path
+import Link from "next/link";
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const toRotate = ["Web Developer", "Web Designer", "UI/UX Designer"];
+  const toRotate = ["Web Developer", "Backend Developer", "Mobile App Developer"];
   const period = 2000;
 
   const { ref, inView } = useInView({
@@ -67,16 +68,20 @@ export const Banner = () => {
             <span className="text-white">{text}</span>
           </h1>
           <p className="text-base text-white opacity-50 mb-6">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+           I'm a frontend developer with 7 months of hands-on experience building responsive and dynamic web interfaces.I also have a solid understanding of backend development, enabling me to work across the full stack.
+Additionally, I’ve explored mobile app development, giving me a well-rounded perspective on cross-platform solutions.
           </p>
 
+         <Link
+         href='/img/Resume.pdf'
+         >
           <button
             className="btn btn-primary"
             onClick={() => console.log("connect")}
           >
-            Let's Connect
+            Resume
           </button>
+         </Link>
         </div>
 
         {/* Header Image */}

@@ -83,30 +83,31 @@ export default function Contact() {
                 className="input input-bordered w-full h-18 rounded-xl border-white bg-white/25 text-white placeholder-white"
                 required
               />
-
-              <input
+               <input
                 type="text"
                 value={formDetails.firstName}
-                placeholder="First Name"
-                onChange={(e) => onFormUpdate("firstName", e.target.value)}
-                className="input input-bordered  w-full h-18 rounded-xl border-white bg-white/25 text-white placeholder-white"
+                placeholder="Last Name"
+                onChange={(e) => onFormUpdate("lastname", e.target.value)}
+                className="input input-bordered h-18 rounded-xl w-full border-white bg-white/25 text-white placeholder-white"
                 required
               />
+              
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <input
                 type="text"
                 value={formDetails.firstName}
-                placeholder="First Name"
-                onChange={(e) => onFormUpdate("firstName", e.target.value)}
-                className="input input-bordered h-18 rounded-xl w-full border-white bg-white/25 text-white placeholder-white"
+                placeholder="Phone"
+                onChange={(e) => onFormUpdate("phone", e.target.value)}
+                className="input input-bordered  w-full h-18 rounded-xl border-white bg-white/25 text-white placeholder-white"
                 required
               />
+              
               <input
                 type="text"
                 value={formDetails.firstName}
-                placeholder="First Name"
-                onChange={(e) => onFormUpdate("firstName", e.target.value)}
+                placeholder="email"
+                onChange={(e) => onFormUpdate("email", e.target.value)}
                 className="input input-bordered h-18 rounded-xl w-full border-white bg-white/25 text-white placeholder-white"
                 required
               />
