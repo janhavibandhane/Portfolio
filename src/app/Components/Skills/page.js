@@ -5,9 +5,8 @@ export const Skills = () => {
   const skillsData = [
     { percent: 80, label: "React JS" },
     { percent: 80, label: "Next JS" },
-    { percent: 85, label: "Tailwind CSS" },
-    { percent: 85, label: "Daisy UI" },
     { percent: 70, label: "React Native Expo" },
+    { percent: 85, label: "Tailwind CSS" },
     { percent: 70, label: "Express JS" },
     { percent: 65, label: "Mongo DB" },
   ];
