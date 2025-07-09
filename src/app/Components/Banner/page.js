@@ -69,11 +69,11 @@ export const Banner = () => {
           </h1>
           <p className="text-base text-white opacity-50 mb-6">
            I'm a frontend developer with 7 months of hands-on experience building responsive and dynamic web interfaces.I also have a solid understanding of backend development, enabling me to work across the full stack.
-Additionally, I’ve explored mobile app development, giving me a well-rounded perspective on cross-platform solutions.
+           Additionally, I’ve explored mobile app development, giving me a well-rounded perspective on cross-platform solutions.
           </p>
 
          <Link
-         href='/img/Resume.pdf'
+         href='/img/Resume (7).pdf'
          >
           <button
             className="btn btn-primary"

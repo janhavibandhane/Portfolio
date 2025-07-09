@@ -19,7 +19,7 @@ const Projects = () => {
     {
       title: '700 Form',
       imgUrl: '/img/img2.png',
-      link: '/Components/ReuseableComponent/ProjectVideo',
+      link: 'https://github.com/VAPStechnology/frontend-700-Form-',
     },
     {
       title: 'AvayaanInfra-Structure',
