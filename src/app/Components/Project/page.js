@@ -34,13 +34,13 @@ const Projects = () => {
       imgUrl: '/img/Portfolio.png',
       link: 'https://janhavibandhaneportfolio.netlify.app/',
     },
+    {
+      title: 'ContentFuel mobile application',
+      imgUrl: '/img/ContentFuel.jpeg',
+      link: 'https://drive.google.com/drive/folders/1SLvOBUpRDD3lmHozuCBkFe-fmG_EdgpA',
+    },
     // {
-    //   title: 'E-commerce Site',
-    //   imgUrl: '/img/project-img3.png',
-    //   link: '#',
-    // },
-    // {
-    //   title: 'Portfolio Website',
+    //   title: 'Portfolio Website',  
     //   imgUrl: '/img/image.png',
     //   link: '#',
     // },

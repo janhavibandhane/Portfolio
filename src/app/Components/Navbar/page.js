@@ -75,7 +75,7 @@ export const Navbar = () => {
             </Link>
           </div>
           <div className="hidden md:block">
-            <Link href="/img/Resume (7).pdf">
+            <Link href="/img/JanhaviBandhane.pdf">
               <button className="btn btn-outline btn-primary">
                 Resume
               </button>

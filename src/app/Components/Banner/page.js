@@ -48,7 +48,7 @@ export const Banner = () => {
   }, [delta, tick]);
 
   return (
-    <section id="home" className="relative w-full max-h-screen py-16 bg-base-300 text-white">
+    <section id="home" className="relative w-full md:max-h-screen  py-16 bg-base-300 text-white ">
       {/* Background image div */}
       <div
         className="absolute inset-0 bg-no-repeat bg-center bg-cover min-h-screen"
@@ -73,7 +73,7 @@ export const Banner = () => {
           </p>
 
          <Link
-         href='/img/Resume (7).pdf'
+         href='/img/JanhaviBandhane.pdf'
          >
           <button
             className="btn btn-primary"
@@ -86,7 +86,7 @@ export const Banner = () => {
 
         {/* Header Image */}
         <div
-          className={`transition-transform duration-1000 ${inView ? "scale-100" : "scale-90 opacity-0"} w-90 md:w-1/3`}
+          className={`transition-transform duration-1000  ${inView ? "scale-100" : "scale-90 opacity-0"} w-90 md:w-1/3`}
         >
           <Image
             src={headerImg}
