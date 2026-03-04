@@ -16,7 +16,7 @@ import {
 } from "react-icons/si";
 import colorSharp from "../../../../public/img/color-sharp.png";
 
-export const Skills = () => {
+export default function Skills() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 

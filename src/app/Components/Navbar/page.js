@@ -7,7 +7,7 @@ import { BsLinkedin } from "react-icons/bs";
 import { SiLeetcode } from "react-icons/si";
 import { FiDownload, FiHome, FiCode, FiBriefcase, FiFolder } from "react-icons/fi";
 
-export const Navbar = () => {
+export default function Navbar() {
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

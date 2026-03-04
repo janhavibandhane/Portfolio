@@ -22,7 +22,7 @@ import {
   SiTailwindcss 
 } from "react-icons/si";
 
-export const Experience = () => {
+export default function Experience() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 

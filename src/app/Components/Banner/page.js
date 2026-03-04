@@ -27,7 +27,7 @@ import { SiLeetcode } from "react-icons/si"; // Add this import
 
 import headerImg from "../../../../public/img/janhaviImg.png";
 
-export const Banner = () => {
+export default function Banner (){
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);

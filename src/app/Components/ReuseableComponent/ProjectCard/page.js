@@ -1,5 +1,5 @@
 'use client'
-export const ProjectCard = ({ title, description, imgUrl }) => {
+export default function ProjectCard({ title, description, imgUrl }) {
   return (
     <div className="w-full max-w-3xl mx-auto px-4 mb-10">
       <div className="relative rounded-3xl overflow-hidden group shadow-xl hover:shadow-2xl transition-shadow duration-300">

@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ProjectCard } from '../ReuseableComponent/ProjectCard/page';
+import ProjectCard from '../ReuseableComponent/ProjectCard/page';
 import colorSharp2 from '../../../../public/img/color-sharp2.png';
 import Link from 'next/link';
 import { 
