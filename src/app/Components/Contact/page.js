@@ -106,17 +106,11 @@ export default function Contact() {
     { 
       icon: HiOutlineMail, 
       label: "Email", 
-      value: "janhavi.bandhane@email.com",
-      link: "mailto:janhavi.bandhane@email.com",
+      value: "janhavibandhane@email.com",
+      link: "mailto:janhavibandhane@email.com",
       color: "from-blue-400 to-blue-600"
     },
-    { 
-      icon: HiOutlinePhone, 
-      label: "Phone", 
-      value: "+91 98765 43210",
-      link: "tel:+919876543210",
-      color: "from-purple-400 to-purple-600"
-    },
+   
     { 
       icon: HiOutlineLocationMarker, 
       label: "Location", 
