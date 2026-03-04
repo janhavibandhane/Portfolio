@@ -7,6 +7,7 @@ import Footer from "./Components/Footer/page";
 import { ProjectCard } from "./Components/ReuseableComponent/ProjectCard/page";
 import Project from "./Components/Project/page";
 import ProjectVideo from "./Components/ReuseableComponent/ProjectVideo/page";
+import { Experience } from "./Components/Experience/page";
 
 
 export default function Home() {
@@ -15,8 +16,9 @@ export default function Home() {
     <Navbar></Navbar>
     <Banner></Banner>
     <Skills></Skills>
-    <Contact></Contact>
+    <Experience></Experience>
     <Project></Project>
+    <Contact></Contact>
     <Footer></Footer>
     </>
   );

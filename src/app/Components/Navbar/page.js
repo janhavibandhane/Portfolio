@@ -1,13 +1,16 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { FaGithub } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaGithub, FaBars, FaTimes } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
-import { SlOptionsVertical } from "react-icons/sl";
+import { SiLeetcode } from "react-icons/si";
+import { FiDownload, FiHome, FiCode, FiBriefcase, FiFolder } from "react-icons/fi";
 
 export const Navbar = () => {
   const [activeLink, setActiveLink] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -17,104 +20,252 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const onUpdateActiveLink = (value) => {
+  // Close mobile menu when clicking a link
+  const handleLinkClick = (value) => {
     setActiveLink(value);
+    setMobileMenuOpen(false);
   };
 
+  const navLinks = [
+    { href: "#home", label: "Home", icon: FiHome },
+    { href: "#skills", label: "Skills", icon: FiCode },
+    { href: "#experience", label: "Experience", icon: FiBriefcase },
+    { href: "#projects", label: "Projects", icon: FiFolder },
+  ];
+
+  const socialLinks = [
+    { 
+      icon: FaGithub, 
+      href: "https://github.com/janhavibandhane", 
+      label: "GitHub",
+      color: "hover:text-gray-300"
+    },
+    { 
+      icon: BsLinkedin, 
+      href: "https://www.linkedin.com/in/janhavi-bandhane-b6362b255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", 
+      label: "LinkedIn",
+      color: "hover:text-blue-400"
+    },
+    { 
+      icon: SiLeetcode, 
+      href: "https://leetcode.com/u/janhavibandhane/", 
+      label: "LeetCode",
+      color: "hover:text-orange-400"
+    },
+  ];
+
   return (
-    <div
-      className={`navbar fixed top-0 z-50 transition-all text-white  ${
-        scrolled ? "bg-[rgba(0,0,0,0.5)] shadow" : "bg-[rgba(0,0,0,0)]"
-      }`}
-    >
-      <div className="container mx-auto flex justify-between items-center px-4 py-3">
-        <Link href="/" className="text-2xl font-bold text-white">
-          MyPortfolio
-        </Link>
+    <>
+      <motion.div
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        className={`navbar fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled 
+            ? "bg-black/80 backdrop-blur-md shadow-lg border-b border-white/10" 
+            : "bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8 py-3">
+          {/* Logo */}
+          <Link href="/" className="relative group">
+            <motion.span 
+              whileHover={{ scale: 1.05 }}
+              className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+            >
+              Janhavi.
+            </motion.span>
+            <motion.div 
+              initial={{ width: 0 }}
+              whileHover={{ width: "100%" }}
+              transition={{ duration: 0.3 }}
+              className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400"
+            />
+          </Link>
 
-        <div className="hidden md:flex gap-6 font-semibold text-lg">
-          <Link
-            href="#home"
-            className={` ${
-              activeLink === "home" ? "text-primary font-semibold" : ""
-            }`}
-            onClick={() => onUpdateActiveLink("home")}
-          >
-            Home
-          </Link>
-          <Link
-            href="#skills"
-            className={` ${
-              activeLink === "skills" ? "text-primary font-semibold" : ""
-            }`}
-            onClick={() => onUpdateActiveLink("skills")}
-          >
-            Skills
-          </Link>
-          <Link
-            href="#projects"
-            className={` ${
-              activeLink === "projects" ? "text-primary font-semibold" : ""
-            }`}
-            onClick={() => onUpdateActiveLink("projects")}
-          >
-            Projects
-          </Link>
-        </div>
-
-        <div className="flex md:space-x-4 gap-1">
-          <div className="flex md:space-x-4 gap-1">
-            <Link href="https://github.com/janhavibandhane"><div className=" w-8 h-8 md:w-10 md:h-10 bg-[#1e1e1e] opacity-35 rounded-full border-2 border-white flex justify-center items-center">
-              <FaGithub className="text-4xl" />
-            </div>
-            </Link>
-            <Link href='https://www.linkedin.com/in/janhavi-bandhane-b6362b255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'>
-            <div className=" w-8 h-8 md:w-10 md:h-10 bg-[#1e1e1e] opacity-25 rounded-full border-2 border-white flex justify-center items-center">
-              <BsLinkedin className="md:text-4xl text-3xl rounded-full" />
-            </div>
-            </Link>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setActiveLink(link.label.toLowerCase())}
+                  className="relative group"
+                >
+                  <span className={`flex items-center gap-2 text-base font-medium transition-colors duration-300 ${
+                    activeLink === link.label.toLowerCase() 
+                      ? "text-blue-400" 
+                      : "text-white/80 hover:text-white"
+                  }`}>
+                    <Icon className="w-4 h-4" />
+                    {link.label}
+                  </span>
+                  {activeLink === link.label.toLowerCase() && (
+                    <motion.div 
+                      layoutId="activeNav"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
           </div>
-          <div className="hidden md:block">
-            <Link href="/img/JanhaviBandhane.pdf">
-              <button className="btn btn-outline btn-primary">
+
+          {/* Right Section - Social Icons & Resume */}
+          <div className="flex items-center gap-3">
+            {/* Social Icons */}
+            <div className="hidden md:flex items-center gap-2">
+              {socialLinks.map((social) => (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className={`p-2 rounded-lg bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all duration-300 group`}
+                  aria-label={social.label}
+                >
+                  <social.icon className={`w-4 h-4 text-white/60 group-hover:text-blue-400 transition-colors`} />
+                </motion.a>
+              ))}
+            </div>
+
+            {/* Resume Button */}
+            <Link href="/img/JanhaviBandhane.pdf" target="_blank">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="hidden md:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-medium rounded-lg shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-purple-500/40 transition-all duration-300"
+              >
+                <FiDownload className="w-4 h-4" />
                 Resume
-              </button>
+              </motion.button>
             </Link>
-          </div>
-          <div className="dropdown dropdown-end md:hidden">
-            <div
-              tabIndex={0}
-              role="button"
-              className=" w-8 h-8 md:w-10 md:h-10 bg-[#1e1e1e] opacity-25 rounded-full border-2 border-white flex justify-center items-center"
+
+            {/* Mobile Menu Button */}
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 rounded-lg bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all duration-300"
+              aria-label="Toggle menu"
             >
-              <SlOptionsVertical />
-            </div>
-            <ul
-              tabIndex={0}
-              className="mt-3 dropdown-content menub bg-[#1e1e1e] border border-[#777373] font-semibold space-y-2  rounded-box z-1 w-52 p-2 shadow-sm"
-            >
-              <li>
-               <Link
-            href="#home">
-              Home
-            </Link>
-              </li>
-             <li>
-               <Link
-            href="#skills">
-              Skills
-            </Link>
-              </li>
-              <li>
-               <Link
-            href="#projects">
-              Project
-            </Link>
-              </li>
-            </ul>
+              {mobileMenuOpen ? (
+                <FaTimes className="w-5 h-5 text-white/80" />
+              ) : (
+                <FaBars className="w-5 h-5 text-white/80" />
+              )}
+            </motion.button>
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
+            />
+            
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 bottom-0 w-64 bg-black/95 backdrop-blur-xl border-l border-white/10 z-50 md:hidden"
+            >
+              <div className="flex flex-col h-full p-6">
+                {/* Mobile Menu Header */}
+                <div className="flex justify-between items-center mb-8">
+                  <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    Menu
+                  </span>
+                  <button
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                  >
+                    <FaTimes className="w-4 h-4 text-white/80" />
+                  </button>
+                </div>
+
+                {/* Navigation Links */}
+                <div className="flex-1 space-y-4">
+                  {navLinks.map((link) => {
+                    const Icon = link.icon;
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        onClick={() => handleLinkClick(link.label.toLowerCase())}
+                        className={`flex items-center gap-3 p-3 rounded-lg transition-all duration-300 ${
+                          activeLink === link.label.toLowerCase()
+                            ? "bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30"
+                            : "hover:bg-white/5"
+                        }`}
+                      >
+                        <Icon className={`w-5 h-5 ${
+                          activeLink === link.label.toLowerCase() 
+                            ? "text-blue-400" 
+                            : "text-white/60"
+                        }`} />
+                        <span className={`text-base ${
+                          activeLink === link.label.toLowerCase()
+                            ? "text-white font-medium"
+                            : "text-white/80"
+                        }`}>
+                          {link.label}
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+
+                {/* Mobile Social Links */}
+                <div className="pt-6 border-t border-white/10">
+                  <div className="flex items-center justify-center gap-4 mb-4">
+                    {socialLinks.map((social) => (
+                      <motion.a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileTap={{ scale: 0.95 }}
+                        className="p-3 bg-white/5 rounded-lg border border-white/10 hover:border-blue-500/30 transition-all duration-300"
+                        aria-label={social.label}
+                      >
+                        <social.icon className="w-5 h-5 text-white/60 hover:text-blue-400 transition-colors" />
+                      </motion.a>
+                    ))}
+                  </div>
+
+                  {/* Mobile Resume Button */}
+                  <Link href="/img/JanhaviBandhane.pdf" target="_blank">
+                    <motion.button
+                      whileTap={{ scale: 0.95 }}
+                      className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-medium rounded-lg shadow-lg"
+                    >
+                      <FiDownload className="w-4 h-4" />
+                      Download Resume
+                    </motion.button>
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
