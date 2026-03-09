@@ -211,11 +211,11 @@ const Projects = () => {
             transition={{ delay: 0.2, duration: 0.5 }}
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-white bg-clip-text text-transparent">
                 My Projects
               </span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full" />
+            <div className="w-24 h-1 bg-white/80 mx-auto mb-6 rounded-full" />
             <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed px-4">
               Explore my work across{' '}
               <span className="text-blue-400 font-semibold">company</span>,{' '}
