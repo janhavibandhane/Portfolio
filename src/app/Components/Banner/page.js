@@ -280,7 +280,7 @@ export default function Banner (){
             {/* Main Heading */}
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.2] mb-4"
+              className="md:text-6xl text-4xl font-bold leading-[1.2] mb-4"
             >
               <span className="text-white/80">Hi, I'm </span>
               <span className="relative inline-block">

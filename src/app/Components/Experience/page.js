@@ -160,11 +160,11 @@ export default function Experience() {
           className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-white/90 bg-clip-text text-transparent">
               Work Experience
             </span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-6 rounded-full" />
+          <div className="w-24 h-1 bg-white/70 mx-auto mb-6 rounded-full" />
           <p className="text-gray-400 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
             <span className="text-blue-400 font-semibold">1.7+ years</span> of hands-on experience across{' '}
             <span className="text-purple-400 font-semibold">2 companies</span> in full-stack and frontend development
